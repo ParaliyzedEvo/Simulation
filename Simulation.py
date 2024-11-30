@@ -23,11 +23,21 @@ traits = {
 
 traits = {}
 # Ask user for variables and their values then puts them into traits
-num_traits = int(input('\nHow many variables do you want? \n\n'))
+while True:
+    num_traits = int(input('\nHow many variables do you want? \n\n'))
+    if num_traits <= 0:
+        print('\nPlease pick a number greater than 0. \n\n')
+    else:
+        break
 
 for i in range(num_traits):
     trait_name = input('\nWhat variable do you want to add? \n\n')
-    trait_value = int(input(f'\nEnter the original value for the variable {trait_name.upper()}? \n\n'))
+    while True:
+        trait_value = int(input(f'\nEnter the original value for the variable {trait_name.upper()}? \n\n'))
+        if trait_value <= 0:
+            print('Please pick a number greater than 0.')
+        else:
+            break
 
     traits[trait_name] = trait_value
 
@@ -42,7 +52,12 @@ actions = [
 
 actions = []
 # Asks user for the actions and their impact to the original variables they've listed above
-num_actions = int(input('\nHow many actions have happened that impacted your original scenario? \n\n'))
+while True:
+    num_actions = int(input('\nHow many actions have happened that impacted your original scenario? \n\n'))
+    if num_actions <= 0:
+        print('Please pick a number greater than 0.')
+    else:
+        break
 
 for i in range(num_actions):
     action_name = input('\nWhat action do you want to add? \n\n')
@@ -50,7 +65,12 @@ for i in range(num_actions):
     actions.append({'action': action_name,'impact': action_impact})
 
 # Asking user for the initial score for the scenario (e.g., starting condition or baseline)
-initial_score = int(input('\nWhat do you want the intial score of the scenario to be? \n\n'))
+while True:
+    initial_score = int(input('\nWhat do you want the intial score of the scenario to be? \n\n'))
+    if initial_score <= 0:
+        print('Please pick a number greater than 0.')
+    else:
+        break
 
 # Simulate the scenario and calculate probabilities for outcomes
 def simulate_scenario():
@@ -67,19 +87,37 @@ def simulate_scenario():
 
     if num_factors == 0:
         for i in range(len(traits)):
-            factor_name = input(f'\nWhat factor do you want to add the weight first? \n\n')
-            if factor_name not in traits:
-                print(f"Error: The factor '{factor_name}' does not exist in traits. Please add it first.")
-                break
-            weight = float(input(f'\nEnter the weight for the factor {factor_name.upper()}: \n\n'))
+            while True:
+                factor_name = input(f'\nWhat factor do you want to add the weight first? \n\n')
+                if factor_name not in traits:
+                    print(f"Error: The factor '{factor_name}' does not exist in traits. Please add it first.")
+                else:
+                    break
+
+            while True:
+                weight = float(input(f'\nEnter the weight for the factor {factor_name.upper()}: (0-1, use decimals)\n\n'))
+                if weight > 1 or weight <= 0:
+                    print('Please pick a number between 0-1.')
+                else:
+                    break
+                
             factors[factor_name] = weight
     else:
         for i in range(num_factors):
-            factor_name = input(f'\nWhat factor do you want to change? \n\n')
-            if factor_name not in traits:
-                print(f"Error: The factor '{factor_name}' does not exist in traits. Please add it first.")
-                break
-            weight = float(input(f'\nEnter the weight for the factor {factor_name.upper()}: \n\n'))
+            while True:
+                factor_name = input(f'\nWhat factor do you want to change? \n\n')
+                if factor_name not in traits:
+                    print(f"Error: The factor '{factor_name}' does not exist in traits. Please add it first.")
+                else:
+                    break
+
+            while True:
+                weight = float(input(f'\nEnter the weight for the factor {factor_name.upper()}: (0-1, use decimals)\n\n'))
+                if weight > 1 or weight <= 0:
+                    print('Please pick a number between 0-1.')
+                else:
+                    break
+
             factors[factor_name] = weight
 
     # Generate the factor calculations dynamically
@@ -87,7 +125,13 @@ def simulate_scenario():
 
     # Add randomness to try and somewhat simulate real life
     rand1 = int(input('\nPick a number: \n\n'))
-    rand2 = int(input('\nPick another number bigger than the first number: \n\n'))
+    while True:
+        rand2 = int(input('\nPick another number bigger than the first number: \n\n'))
+        if rand2 <= rand1:
+            print('Please pick a number greater than your first number.')
+        else:
+            break
+
     random_factor = random.randint(rand1, rand2)
 
     # Define outcomes and their probabilities
@@ -101,10 +145,22 @@ def simulate_scenario():
     total_probability = 0
     random_factor = random.randint(0, 100)
     # Asking user for the number of outcomes they want for their scenario
-    num_outcomes = int(input('\nHow many outcomes do you want for your scenario? \n\n'))
+    while True:
+        num_outcomes = int(input('\nHow many outcomes do you want for your scenario? \n\n'))
+        if num_outcomes <= 0:
+            print('Please pick a number greater than 0.')      
+        else:
+            break
+        
     for i in range(num_outcomes):
         outcome_name = input('\nWhat\'s the outcome? \n\n')
-        weight = float(input('\nHow likely is this outcome? \n\n'))
+        while True:
+            weight = float(input('\nHow likely is this outcome? (1-10) \n\n'))
+            if weight < 1 or weight > 10:
+                print('Please pick a number between 1-10.')      
+            else:
+                break
+        
         outcomes[outcome_name] = weight
         
     for action in actions:
