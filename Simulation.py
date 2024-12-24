@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Note: The original code that I wrote was one, cause I was bored and two, I didn't want to go back and change the variables again which is why this exist now with added inputs and such. Original code is commented out for my understanding on what I wrote and for your understanding also
 
 import random
@@ -8,7 +7,11 @@ print('=========================================================================
 print('DISCLAIMER!!!!!\n')
 print('Please do not use this code to actually predict the outcomes of your scenarios, this code can\'t simulate real life and I\'ll never write it to be or close to be (mostly cause I\'m js lazy lol)\n')
 print('Treat it like a old ass gambling machine and don\'t take anything this code produces seriously (aka don\'t end up like the guy killing himself over a ch.ai bot...)\n')
-print('(PS: If your using the exe version, dm me for the python file or go back to github where I have the original code there.\n)')
+#Credits
+print('Credits: \n')
+print('Made by: Paraliyzed_evo \n')
+print('Source code: https://github.com/ParaliyzedEvo/Simulation \n')
+print('Website: https://paraliyzed.net \n')
 print('==========================================================================================================================================================================================\n')
 
 original = input('What\'s you orignal scenario for this? \n\n')
@@ -219,7 +222,6 @@ def simulate_scenario():
             print(f"  {outcome.upper()}): {probability:.2f}%")
             
 # Run the simulation
-=======
 # Note: The original code that I wrote was one, cause I was bored and two, I didn't want to go back and change the variables again which is why this exist now with added inputs and such. Original code is commented out for my understanding on what I wrote and for your understanding also
 
 import random
@@ -444,5 +446,4 @@ def simulate_scenario():
             print(f"  {outcome.upper()}): {probability:.2f}%")
             
 # Run the simulation
->>>>>>> 3123a84 (Added credits)
 simulate_scenario()
