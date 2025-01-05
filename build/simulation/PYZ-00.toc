@@ -1,5 +1,5 @@
-('C:\\Users\\Paraliyzed_evo\\Documents\\Codes that I actually '
- 'wrote\\Python\\Simulation\\build\\simulation\\PYZ-00.pyz',
+('C:\\Users\\paral\\Documents\\Codes that I actually '
+ 'wrote\\Python\\Simulation\\build\\Simulation\\PYZ-00.pyz',
  [('_compat_pickle',
    'C:\\Users\\Paraliyzed_evo\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\_compat_pickle.py',
    'PYMODULE'),
